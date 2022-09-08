@@ -1,0 +1,27 @@
+html {
+  background-color: rgb(192, 241, 225);
+}
+
+h1 {
+  text-align: center;
+}
+body {
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+table {
+  width: 500px;
+  height: 400px;
+}
+
+.cell {
+  border-style: outset;
+  border-color: black;
+  text-align: center;
+}
