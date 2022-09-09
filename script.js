@@ -43,9 +43,57 @@ button.addEventListener("click", () => {
   });
 });
 
-// listen for mouseover event
+// listen for mouseover event:
+// need to listen for mouse down (fill cell), mouse move
+// (continue filling cells on hover), and mouse up (stop listening)
+// might try and use a switch statement?
+
+// this works until you lift the mouse UP, then doesn't stop
+// painting. Obviously, i need to incorporate mouseup event
+// Array.from(cells).forEach((cell) => {
+//   cell.addEventListener("mousedown", () => {
+//     cell.classList.add("fill");
+//     Array.from(cells).forEach((cell) => {
+//       cell.addEventListener("mousemove", () => {
+//         cell.classList.add("fill");
+//       });
+//     });
+//   });
+// });
+
+let paint = false;
+
 Array.from(cells).forEach((cell) => {
-  cell.addEventListener("mouseover", () => {
+  cell.addEventListener("mousedown", () => {
+    paint = true;
     cell.classList.add("fill");
+    Array.from(cells).forEach((c) => {
+      c.addEventListener("mousemove", () => {
+        paint === true ? c.classList.add("active") : false;
+      });
+    });
   });
 });
+
+Array.from(cells).forEach((cell) => {
+  cell.addEventListener("mouseup", () => {
+    paint = false;
+    cell.classList.remove("fill");
+  });
+});
+
+// this doesn't work really...
+// Array.from(
+//   cells.forEach((cell) => {
+//     // listen for event values:
+//     const value = "test";
+//     switch (value) {
+//       case "test":
+//     }
+//   })
+// );
+
+// went on a Stack Overflow mission, found some helpful
+// but lengthy solutions. It honestly might be better to
+// deal with each event listener separately in this case,
+// just to save some lines of extra helper code

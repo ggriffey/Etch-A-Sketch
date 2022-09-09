@@ -7,12 +7,6 @@ h1 {
   margin: 60px 0px;
 }
 
-body {
-  /* justify-content: center; */
-  /* align-items: center;  */
-  /* display: flex; */
-}
-
 #container {
   display: flex;
   justify-content: center;
@@ -24,6 +18,10 @@ table {
   height: 400px;
 }
 
+.active {
+  background-color: var(--main-paint-color);
+}
+
 .cell {
   border-style: solid;
   border-width: 2px;
@@ -31,17 +29,13 @@ table {
   text-align: center;
 }
 
-/* .cell:hover {
-  background-color: rgb(56, 108, 91);
-  transition-duration: 50ms;
+.cells:hover {
+  background-color: var(--main-paint-color);
+  /* transition-duration: 50ms; */
 }
 
-.cell:hover::after {
-  background-color: rgb(56, 108, 91);
-} */
-
 .fill {
-  background-color: rgb(56, 108, 91);
+  background-color: var(--main-paint-color);
 }
 
 .reset {
@@ -53,4 +47,8 @@ table {
   width: 100px;
   height: 50px;
   margin: 0 auto;
+}
+
+.root {
+  --main-paint-color: rgb(56, 108, 91);
 }
