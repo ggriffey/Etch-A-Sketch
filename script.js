@@ -39,7 +39,7 @@ const button = document.getElementById("reset-button");
 // in the usual manner. However, there is THIS workaround:
 button.addEventListener("click", () => {
   Array.from(cells).forEach((cell) => {
-    cell.classList.remove("fill");
+    cell.classList.remove("active");
   });
 });
 
@@ -66,7 +66,7 @@ let paint = false;
 Array.from(cells).forEach((cell) => {
   cell.addEventListener("mousedown", () => {
     paint = true;
-    cell.classList.add("fill");
+    cell.classList.add("active");
     Array.from(cells).forEach((c) => {
       c.addEventListener("mousemove", () => {
         paint === true ? c.classList.add("active") : false;

@@ -49,6 +49,6 @@ table {
   margin: 0 auto;
 }
 
-.root {
+:root {
   --main-paint-color: rgb(56, 108, 91);
 }
