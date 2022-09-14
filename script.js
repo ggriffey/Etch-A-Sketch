@@ -76,19 +76,3 @@ Array.from(cells).forEach((cell) => {
     cell.classList.remove("fill");
   });
 });
-
-// this doesn't work really...
-// Array.from(
-//   cells.forEach((cell) => {
-//     // listen for event values:
-//     const value = "test";
-//     switch (value) {
-//       case "test":
-//     }
-//   })
-// );
-
-// went on a Stack Overflow mission, found some helpful
-// but lengthy solutions. It honestly might be better to
-// deal with each event listener separately in this case,
-// just to save some lines of extra helper code
