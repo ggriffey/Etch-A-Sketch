@@ -1,10 +1,22 @@
 html {
-  background-color: rgb(192, 241, 225);
 }
 
 h1 {
   text-align: center;
+  font-family: "Rampart One", cursive;
+  font-size: 50px;
   margin: 60px 0px;
+}
+
+video {
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+  opacity: 80%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 #container {
@@ -13,9 +25,24 @@ h1 {
   margin-top: 10px;
 }
 
+#content {
+  position: relative;
+}
+
+div#settings {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 table {
+  align-content: center;
   width: 500px;
   height: 400px;
+  border-spacing: 0px !important;
+  border: 20px solid rgb(30, 18, 8);
+  border-radius: 5%;
+  background-color: rgba(211, 203, 192, 0.5);
 }
 
 .active {
@@ -23,9 +50,10 @@ table {
 }
 
 .cell {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
+  width: auto;
+  height: 20px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
   text-align: center;
 }
 

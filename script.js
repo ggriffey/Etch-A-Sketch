@@ -1,6 +1,5 @@
-// create initial grid:
+// ________________ INITIAL GRID __________________
 const createGrid = (x) => {
-  console.log("creating grid!");
   let grid = document.createElement("table");
   grid.className = "grid";
   const container = document.getElementById("container");
@@ -8,14 +7,12 @@ const createGrid = (x) => {
 
   // for each row (height):
   for (let i = 0; i < x; i++) {
-    console.log("creating row!");
     // create new table row
     let row = document.createElement("tr");
     row.cellName = "row";
 
     // then: for each row, create "length" # of cells
     for (let j = 0; j < x; j++) {
-      console.log("creating cell!");
       // create and add cell to row
       let cell = document.createElement("td");
       cell.className = "cell";
@@ -30,9 +27,22 @@ const createGrid = (x) => {
 
 createGrid(16);
 
-const cells = document.getElementsByClassName("cell");
+// __________________ COLOR PICKER ___________________________
+const colorWheel = document.getElementById("colorWheel");
+const root = document.querySelector(":root");
 
-// reset button logic
+const updateColor = () => {
+  let chosenColor = colorWheel.value;
+  root.style.color = chosenColor;
+};
+
+updateColor();
+
+// listen for a NEW color:
+colorWheel.addEventListener("change", updateColor);
+
+// ________________ RESET BUTTON LOGIC __________________
+const cells = document.getElementsByClassName("cell");
 const button = document.getElementById("reset-button");
 // Querying elements from the DOM returns an HTMLCollection...
 // Thus, we cannot treat the result as an array and use foreach
@@ -43,23 +53,7 @@ button.addEventListener("click", () => {
   });
 });
 
-// listen for mouseover event:
-// need to listen for mouse down (fill cell), mouse move
-// (continue filling cells on hover), and mouse up (stop listening)
-// might try and use a switch statement?
-
-// this works until you lift the mouse UP, then doesn't stop
-// painting. Obviously, i need to incorporate mouseup event
-// Array.from(cells).forEach((cell) => {
-//   cell.addEventListener("mousedown", () => {
-//     cell.classList.add("fill");
-//     Array.from(cells).forEach((cell) => {
-//       cell.addEventListener("mousemove", () => {
-//         cell.classList.add("fill");
-//       });
-//     });
-//   });
-// });
+// ________________ GRID EVENT LISTENERS __________________
 
 let paint = false;
 
@@ -71,6 +65,7 @@ Array.from(cells).forEach((cell) => {
       c.addEventListener("mousemove", () => {
         paint === true ? c.classList.add("active") : false;
       });
+      console.log("_");
     });
   });
 });
