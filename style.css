@@ -5,6 +5,11 @@ h1 {
   margin: 60px 0px;
 }
 
+h3 {
+  font-family: "Verdana", sans-serif;
+  font-weight: 300;
+}
+
 video {
   object-fit: cover;
   height: 100vh;
@@ -28,22 +33,19 @@ video {
 
 div#settings {
   display: flex;
-  width: 100%;
-  justify-content: center;
+  width: 500px;
+  justify-content: space-between;
+  margin: auto;
+  align-items: center;
 }
 
 table {
   align-content: center;
   width: 500px;
-  height: 400px;
+  height: 450px;
   border-spacing: 0px !important;
   border: 20px solid rgb(30, 18, 8);
   border-radius: 5%;
-  background-color: rgba(211, 203, 192, 0.5);
-}
-
-.active {
-  background-color: var(--main-paint-color);
 }
 
 .cell {
@@ -54,25 +56,33 @@ table {
   text-align: center;
 }
 
-.cells:hover {
-  background-color: var(--main-paint-color);
-}
-
-.fill {
-  background-color: var(--main-paint-color);
+.reset,
+.color-wheel {
+  border: solid 2px rgb(109, 84, 63);
+  border-radius: 7px;
+  background-color: rgba(211, 203, 192, 0.7);
+  margin: 0 40px;
 }
 
 .reset {
+  height: 56px;
   display: block;
   font-size: 15px;
-  background-color: aliceblue;
-  border-style: solid;
-  border-radius: 7px;
+  font-family: "Verdana", sans-serif;
   width: 100px;
-  height: 50px;
-  margin: 0 auto;
 }
 
-:root {
-  --main-paint-color: rgb(56, 108, 91);
+.color-wheel {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+input#colorWheel {
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
 }

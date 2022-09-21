@@ -1,0 +1,39 @@
+====================
+ETCH A SKETCH TO DO:
+====================
+    
+X   Need to update painting to "off" when user LEAVES the grid, even if 
+    they are still holding the mouse down. Currently, if they click and 
+    drag outside of the grid then release the click, painting is still on 
+
+X   Change hover-to-paint so that the user must click and drag instead.
+    This makes painting much easier and versatile.
+
+X   Allow user to pick color. I'm thinking something like:
+                         
+            Choose color :  |=| (<-- this is a box that you can click
+                                to change the color. When you click it,
+                                it expands into a bigger circle where you 
+                                can select a color by clicking/dragging.)
+
+o   Add the ability to customize the grid size.
+    I think a slider would be the most fun and functional.
+    The circle that you slide from left to right could get
+    bigger as the number of cells decreases (as the "paintbrush"
+    would be increasing in size") and smaller as the grid size 
+    increases. This may be hard to figure out in terms of css
+    but it would be a good challenge to have the circle fluidly
+    change as you slide it back and forth.
+
+X   Add a border to the container div and make it look more like
+    a canvas and less like a grid of cells. 
+
+X   Shrink the distance between the cells (border thickness?). 
+    Does this have anything to do with the fact that I went with
+    creating a table versus a grid of divs? Regardless, I think
+    there's a css attribute for decreasing the space between elements.
+
+o   Maybe add the ability to toggle the grid lines on/off
+
+x   Fix layout of all elements on the page. Reset button and color picker
+    should be more centered and evenly distributed in their div

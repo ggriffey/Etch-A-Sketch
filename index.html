@@ -17,20 +17,22 @@
     <title>Virtual Sketch!</title>
   </head>
   <body>
-    <video playsinline autoplay muted loop poster="cake.jpg">
+    <video playsinline autoplay muted loop>
       <source src="./Nature - 111308.mp4" type="video/webm" />
       Your browser does not support the video tag.
     </video>
     <div id="content">
       <h1 class="title">// Virtual Sketch \\</h1>
       <div id="settings">
-        <div>
-          Choose color:
+        <div class="color-wheel">
+          <h3>Choose color:</h3>
           <input type="color" id="colorWheel" value="#000000" />
         </div>
         <button class="reset" id="reset-button">Reset</button>
       </div>
-      <div id="container"></div>
+      <div id="container">
+        <table class="grid"></table>
+      </div>
     </div>
   </body>
 </html>

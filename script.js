@@ -1,78 +1,71 @@
-// ________________ INITIAL GRID __________________
-const createGrid = (x) => {
-  let grid = document.createElement("table");
-  grid.className = "grid";
-  const container = document.getElementById("container");
-  container.appendChild(grid);
+// _____________ COLORS / COLOR PICKER ______________
+const colorWheel = document.getElementById("colorWheel");
 
+const BG_DEFAULT = "rgba(211, 203, 192, 0.5)";
+const PAINT_DEFAULT = colorWheel.value;
+let paint_color = PAINT_DEFAULT;
+
+const updateColor = () => {
+  paint_color = colorWheel.value;
+  console.log("color updated");
+};
+
+// ________________ INITIAL GRID __________________
+let grid = document.querySelector(".grid");
+let gridSize = 16;
+
+const createGrid = (x) => {
   // for each row (height):
   for (let i = 0; i < x; i++) {
     // create new table row
     let row = document.createElement("tr");
-    row.cellName = "row";
+    row.className = "row";
 
-    // then: for each row, create "length" # of cells
+    // for each row, create # of cells
     for (let j = 0; j < x; j++) {
-      // create and add cell to row
+      // create & add cell to row
       let cell = document.createElement("td");
       cell.className = "cell";
       cell.textContent = "";
       row.appendChild(cell);
     }
-
     // add the current row to the grid
     grid.appendChild(row);
   }
 };
 
-createGrid(16);
+createGrid(gridSize);
+grid.style.backgroundColor = BG_DEFAULT;
 
-// __________________ COLOR PICKER ___________________________
-const colorWheel = document.getElementById("colorWheel");
-const root = document.querySelector(":root");
+// _____________ LISTEN FOR COLOR UPDATE ________________
+colorWheel.addEventListener("input", updateColor);
 
-const updateColor = () => {
-  let chosenColor = colorWheel.value;
-  root.style.color = chosenColor;
-};
-
-updateColor();
-
-// listen for a NEW color:
-colorWheel.addEventListener("change", updateColor);
-
-// ________________ RESET BUTTON LOGIC __________________
+// ________________ RESET BUTTON _________________
 const cells = document.getElementsByClassName("cell");
 const button = document.getElementById("reset-button");
-// Querying elements from the DOM returns an HTMLCollection...
-// Thus, we cannot treat the result as an array and use foreach
-// in the usual manner. However, there is THIS workaround:
+
 button.addEventListener("click", () => {
   Array.from(cells).forEach((cell) => {
-    cell.classList.remove("active");
+    cell.style.backgroundColor = "rgba(0, 0, 0, 0)"; // clear
   });
 });
 
-// ________________ GRID EVENT LISTENERS __________________
+// ________________ PAINTING FUNCTIONALITY __________________
+let painting = false;
 
-let paint = false;
+const paint = (cell) => {
+  painting ? (cell.style["background-color"] = `${paint_color}`) : false;
+};
 
+// grid listeners:
+grid.addEventListener("mouseleave", () => (painting = false));
+grid.addEventListener("mouseup", () => (painting = false));
+
+// cell listeners:
 Array.from(cells).forEach((cell) => {
   cell.addEventListener("mousedown", () => {
-    paint = true;
-    cell.classList.add("active");
-    Array.from(cells).forEach((c) => {
-      c.addEventListener("mousemove", () => {
-        paint === true ? c.classList.add("active") : false;
-      });
-      console.log("_");
-    });
+    painting = true;
+    paint(cell);
   });
-});
-
-Array.from(cells).forEach((cell) => {
-  cell.addEventListener("mouseup", () => {
-    paint = false;
-    cell.classList.remove("fill");
-  });
+  cell.addEventListener("mouseenter", () => paint(cell));
 });
