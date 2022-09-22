@@ -16,7 +16,7 @@ X   Allow user to pick color. I'm thinking something like:
                                 it expands into a bigger circle where you 
                                 can select a color by clicking/dragging.)
 
-o   Add the ability to customize the grid size.
+X   Add the ability to customize the grid size.
     I think a slider would be the most fun and functional.
     The circle that you slide from left to right could get
     bigger as the number of cells decreases (as the "paintbrush"
