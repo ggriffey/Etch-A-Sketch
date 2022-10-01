@@ -1,6 +1,6 @@
 # Virtual Sketch!
 
-LIVE DEMO: https://ggriffey.github.io/Etch-A-Sketch/
+LIVE DEMO: https://ggriffey.github.io/Virtual-Sketch/
 
 Built in conjunction with the Odin Project curriculum (https://www.theodinproject.com/lessons/foundations-etch-a-sketch).
 
