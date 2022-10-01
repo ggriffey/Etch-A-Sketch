@@ -1,4 +1,4 @@
-# Etch-A-Sketch
+# Virtual Sketch!
 
 LIVE DEMO: https://ggriffey.github.io/Etch-A-Sketch/
 
